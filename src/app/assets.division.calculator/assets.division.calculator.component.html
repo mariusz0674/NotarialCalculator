@@ -1,0 +1,26 @@
+<p>assets.division.calculator works!</p>
+
+
+<div class="form-group">
+  <label for="rootValue">Wartość początkowa:</label>
+  <input type="number" [(ngModel)]="allMoney" name="rootValue" id="rootValue" class="form-control">
+  <button type="button" (click)="calculateAsset()" class="btn btn-primary">Wprowadz majatek</button>
+
+</div>
+<div></div>
+<table>
+  <tr *ngFor="let assetModel of assetTable" [class.finalAsset]="assetModel.isFinal">
+    <td *ngFor="let item of getArray(assetModel.generation)">
+    </td>
+    <div>
+      <input type="text" [(ngModel)]="assetModel.name"  class="form-control">
+      <label class="form-control"> {{assetModel.value}} </label>
+      <input type="number" [(ngModel)]="assetModel.percent" name="assetPercent" id="assetPercent" class="form-control">
+    </div>
+    <td>
+      <button type="button" (click)="addAssetModel(assetModel)" class="btn btn-primary">Dodaj</button>
+    </td>
+  </tr>
+  <button type="button" (click)="calculateAsset()" class="btn btn-primary">Licz!</button>
+
+</table>

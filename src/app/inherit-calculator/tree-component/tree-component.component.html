@@ -1,0 +1,32 @@
+<p>tree-component works!</p>
+<div class="tree">
+  <div class="controls">
+    <label>
+      Zaznaczony: {{ selectedNode?.name }}
+      <input #newNodeName>
+    </label>
+    <button (click)="addNode(newNodeName.value)">Dodaj spatkobiorce</button><!--    <button (click)="removeNode()">Remove Node</button>-->
+    <button (click)="calculateTree()">Oblicz</button>
+  </div>
+  <div *ngIf="root; else emptyTree">
+    <div class="node" [ngClass]="{ selected: selectedNode === root }" (click)="selectNode(root)">
+      {{ root.name }}
+      <input type="number" [(ngModel)]="root.value">
+
+      <div class="children">
+        <app-tree-node *ngFor="let child of root.children" [node]="child" (nodeSelectedEmit)="selectNode($event)"></app-tree-node>
+      </div>
+
+    </div>
+  </div>
+
+  <ng-template #emptyTree>
+    <label>
+      Impie spadkodawcy
+      <input type="number" [(ngModel)]="root!.value" name="assetPercent" id="assetPercent" class="form-control">
+    </label>
+    <p>No nodes in the tree.</p>
+  </ng-template>
+</div>
+
+
