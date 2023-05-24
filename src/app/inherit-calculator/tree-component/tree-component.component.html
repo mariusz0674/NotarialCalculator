@@ -1,32 +1,34 @@
-<p>tree-component works!</p>
-<div class="tree">
-  <div class="controls">
-    <label>
-      Zaznaczony: {{ selectedNode?.name }}
-      <input #newNodeName>
-    </label>
-    <button (click)="addNode(newNodeName.value)">Dodaj spatkobiorce</button><!--    <button (click)="removeNode()">Remove Node</button>-->
-    <button (click)="calculateTree()">Oblicz</button>
-  </div>
-  <div *ngIf="root; else emptyTree">
-    <div class="node" [ngClass]="{ selected: selectedNode === root }" (click)="selectNode(root)">
-      {{ root.name }}
-      <input type="number" [(ngModel)]="root.value">
-
-      <div class="children">
-        <app-tree-node *ngFor="let child of root.children" [node]="child" (nodeSelectedEmit)="selectNode($event)"></app-tree-node>
+<div class="container w-100">
+  <div class="card p-3">
+    <h3 class="mb-3">Podział majątku</h3>
+    <div class="form-group">
+      <div class="menuBarr">
+        <label for="newNodeName"> <h5> Zaznaczony: {{ selectedNode?.name }} </h5></label>
+        <input #newNodeName id="newNodeName" class="form-control" placeholder="Wprowadz imie">
       </div>
-
+      <div class="form-group m-1 d-flex justify-content-center" >
+        <button (click)="addNode(newNodeName.value)" class="btn btn-primary m-lg-1">Dodaj spadkobiorcę</button>
+        <button (click)="calculateTree()" class="btn btn-success m-lg-1">Oblicz</button>
+        <button (click)="deleteNode()" class="btn btn-danger m-lg-1">Usuń</button>
+      </div>
     </div>
+    <div *ngIf="root; else emptyTree">
+      <div class="card p-3 mb-3" [ngClass]="{'selected': selectedNode === root }" (click)="selectNode(root)">
+        <strong>{{ root.name }} zostawił rodzionie: </strong>
+        <div class="form-group">
+          <input type="number" [(ngModel)]="root.value" class="form-control w-75 m-auto" placeholder="Wartość">
+        </div>
+        <div class="children">
+          <app-tree-node *ngFor="let child of root.children" [node]="child" (nodeSelectedEmit)="selectNode($event)"></app-tree-node>
+        </div>
+      </div>
+    </div>
+    <ng-template #emptyTree>
+      <div class="alert alert-warning" role="alert">
+        <label for="assetPercent">Impie spadkodawcy:</label>
+        <input type="number" [(ngModel)]="root!.value" name="assetPercent" id="assetPercent" class="form-control">
+        <p class="mt-2">Brak węzłów w drzewie.</p>
+      </div>
+    </ng-template>
   </div>
-
-  <ng-template #emptyTree>
-    <label>
-      Impie spadkodawcy
-      <input type="number" [(ngModel)]="root!.value" name="assetPercent" id="assetPercent" class="form-control">
-    </label>
-    <p>No nodes in the tree.</p>
-  </ng-template>
 </div>
-
-

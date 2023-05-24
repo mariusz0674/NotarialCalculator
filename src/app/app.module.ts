@@ -31,3 +31,4 @@ import { TreeNodeComponent } from './inherit-calculator/tree-component/tree-node
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// ng build --output-path docs --base-href /NotarialCalculator/

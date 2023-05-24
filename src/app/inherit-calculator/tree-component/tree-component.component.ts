@@ -54,4 +54,8 @@ export class TreeComponentComponent implements OnInit {
     this.treeService.calcTree(this.root!);
   }
 
+  deleteNode() {
+    this.treeService.deleteNode(this.root!, this.selectedNode!);
+  }
+
 }

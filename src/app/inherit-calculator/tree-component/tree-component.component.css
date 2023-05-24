@@ -29,3 +29,7 @@
   flex-wrap: wrap;
   margin-top: 10px;
 }
+
+.container{
+  max-width: 1600px;
+}

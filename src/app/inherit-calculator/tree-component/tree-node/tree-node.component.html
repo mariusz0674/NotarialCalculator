@@ -5,7 +5,7 @@
   <label class="nodeLabel" for="assetPercent" >
     {{ node.value | currency:'PLN ':false:'1.2-2'}}
   </label>
-  <input (click)="$event.stopPropagation()" type="number" [(ngModel)]="node!.percent" name="assetPercent" id="assetPercent" class="form-control">
+  <input (click)="$event.stopPropagation()" type="number" [(ngModel)]="node!.percent" name="assetPercent" id="assetPercent" class="form-control w-50 ">
   <div class="children" >
     <app-tree-node *ngFor="let child of node.children" [node]="child" (nodeSelectedEmit)="selectedNodeBridge($event)"></app-tree-node>
   </div>

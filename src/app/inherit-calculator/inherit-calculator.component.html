@@ -1,27 +1,27 @@
 <p>inherit-calculator works!</p>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1>Podział majątku</h1>
-      <form>
-        <div class="form-group">
-          <label for="rootValue">Wartość początkowa:</label>
-          <input type="number" [(ngModel)]="root.value" name="rootValue" id="rootValue" class="form-control">
-        </div>
-        <div *ngFor="let asset of root.children">
-          <div class="form-group">
-            <label>Procent majątku:</label>
-            <input type="number" [(ngModel)]="asset.percent" class="form-control">
-          </div>
-          <button type="button" (click)="addAsset(asset)" class="btn btn-primary">Dodaj spadkobiercę</button>
-        </div>
-        <button type="button" (click)="addAsset(root)" class="btn btn-primary">Dodaj spadkobiercę do korzenia</button>
-        <button type="button" (click)="calculate()" class="btn btn-success">Oblicz podział</button>
-      </form>
-    </div>
-  </div>
-</div>
+<!--<div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col">-->
+<!--      <h1>Podział majątku</h1>-->
+<!--      <form>-->
+<!--        <div class="form-group">-->
+<!--          <label for="rootValue">Wartość początkowa:</label>-->
+<!--          <input type="number" [(ngModel)]="root.value" name="rootValue" id="rootValue" class="form-control">-->
+<!--        </div>-->
+<!--        <div *ngFor="let asset of root.children">-->
+<!--          <div class="form-group">-->
+<!--            <label>Procent majątku:</label>-->
+<!--            <input type="number" [(ngModel)]="asset.percent" class="form-control">-->
+<!--          </div>-->
+<!--          <button type="button" (click)="addAsset(asset)" class="btn btn-primary">Dodaj spadkobiercę</button>-->
+<!--        </div>-->
+<!--        <button type="button" (click)="addAsset(root)" class="btn btn-primary">Dodaj spadkobiercę do korzenia</button>-->
+<!--        <button type="button" (click)="calculate()" class="btn btn-success">Oblicz podział</button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 start
-<app-tree-component></app-tree-component>
+<!--<app-tree-component></app-tree-component>-->
 ```
 stop
